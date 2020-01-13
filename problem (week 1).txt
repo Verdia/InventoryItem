@@ -1,0 +1,19 @@
+problem:
+    - login and register are succeed but can't get/post data to dashboard
+      the problem is cross-origin policy from mozilla and im not using class based
+      but function based (export default), but when i discussed with
+      my friend, he suggest that using react component like class clock extend React.component will do
+    
+    - now the problem is "Constructor URLSearchParams requires 'new'"
+      but in my code i had created new on URLSearchParams. then error on all
+
+    - to solve the problem above, we need variable form from getElementByID post-form
+      and fix some syntax using based react component
+
+    - had some bugs, the register cannot post data/response.!ok
+
+feature:
+    - list register user
+    - login succed but dont know how to control response.ok
+    - frontend login,register
+    

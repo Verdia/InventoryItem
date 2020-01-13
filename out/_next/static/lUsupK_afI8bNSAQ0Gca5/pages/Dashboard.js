@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{AZtj:function(n,t,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/Dashboard",function(){return u("pKY4")}])},pKY4:function(n,t,u){"use strict";u.r(t);var i=u("q1tI"),o=u.n(i).a.createElement;t.default=function(){return o("main",null,o("div",null,o("h1",null,"YOYO WHATSAP MAMEN")))}}},[["AZtj",0,1]]]);
