@@ -17,7 +17,7 @@ class Clock extends React.Component {
         },
         body: `email=${email}&password=${password}`
       }).then(response => {
-          console.log("Password is",response.ok)
+        console.log("Password is", response.ok);
       });
     });
   }
@@ -29,7 +29,12 @@ class Clock extends React.Component {
           style={{ display: "grid", background: "white" }}
           className="divLogo"
         >
-          <img src="static/src/Logo_petro.png" id="logo_petro" />
+          <a
+            href="../Dashboard"
+            style={{ margin: "0 auto", width: "100%", marginLeft: "29.5%" }}
+          >
+            <img src="static/src/Logo_petro.png" id="logo_petro" />
+          </a>
 
           <text className="petro">PT.PETROKIMIA GRESIK</text>
 
@@ -120,7 +125,7 @@ class Clock extends React.Component {
           }
 
           .login {
-            width: 30%;
+            width: 40%;
             margin: 0 auto;
             margin-top: 10%;
             display: block;
@@ -131,9 +136,9 @@ class Clock extends React.Component {
 
           #logo_petro {
             background: #ffffff;
-            width: 50%;
+            width: 40%;
             margin: 0 auto;
-            margin-top: 15%;
+            margin-top: 5%;
           }
 
           .sign_in {

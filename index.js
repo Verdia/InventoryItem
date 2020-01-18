@@ -22,7 +22,7 @@ Next.prepare().then(() => {
   app.use(express.json());
 
   //Connect mongoose and set connect var
-  mongoose.connect("mongodb://localhost/reg-login", {
+  mongoose.connect("mongodb://localhost/reg", {
     useNewUrlParser: true
   });
 

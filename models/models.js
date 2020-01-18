@@ -28,4 +28,41 @@ let User = new Schema({
     }
 })
 
+let Item = new Schema({
+    nameItem: {
+        type: String,
+        required: true,
+        max: 50
+    },
+    codeItem: {
+        type: String,
+        required: true,
+        unique: true,
+        min: 3
+    },
+    locationItem:{
+        type: String,
+        required: true,
+        max: 50
+    },
+    dateItem: {
+        type: String,
+        required: true
+    },
+    picItem: {
+        type: String,
+        required: true
+    },
+    idBagianItem: {
+        type: String,
+        required: true
+    },
+    statusItem: {
+        type: String,
+        required: true,
+        enum: ["Exist", "Borrowed"]
+    }
+})
+
 module.exports = mongoose.model("user", User)
+module.exports = mongoose.model("item", Item)

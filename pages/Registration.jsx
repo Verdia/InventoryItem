@@ -1,282 +1,272 @@
-import React from "react"
+import React from "react";
 
 class Regist extends React.Component {
-    
-    componentDidMount() {
-        var form = document.getElementById('formRegist')
-        form.addEventListener('submit', (event) => {
-            const email = document.getElementById("ed_email").value,
-                  password = document.getElementById("ed_password").value,
-                  name = document.getElementById("ed_name").value,
-                  date = document.getElementById("ed_bornDate").value,
-                  gender = document.getElementById("genders").value
-                  
-            
-                  console.log("email : ", email)
-                  console.log("password : ", password)
-                event.preventDefault()
-                fetch("http://localhost:3000/registration", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type' : 'application/x-www-form-urlencoded'
-                    },
-                    body: `name=${name}&email=${email}&password=${password}&bornDate=${date}&gender=${gender}`
-                }).then( response => {
-                    console.log(response)
-                    if (response.ok){
-                        console.log("User Registered")
-                    }else{
-                        console.log("Something Wrong")
-                    }
-                })
-            })
-    }
+  componentDidMount() {
+    var form = document.getElementById("formRegist");
+    form.addEventListener("submit", event => {
+      const email = document.getElementById("ed_email").value,
+        password = document.getElementById("ed_password").value,
+        name = document.getElementById("ed_name").value,
+        date = document.getElementById("ed_bornDate").value,
+        gender = document.getElementById("genders").value;
 
-    render() {
-        return (
-<main >
-    <div style={{display: "grid", background: "white"}} className="divLogo">
-        <img src="static/src/Logo_petro.png" id="logo_petro"/>
+      console.log("email : ", email);
+      console.log("password : ", password);
+      event.preventDefault();
+      fetch("http://localhost:3000/registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `name=${name}&email=${email}&password=${password}&bornDate=${date}&gender=${gender}`
+      }).then(response => {
+        console.log(response);
+        if (response.ok) {
+          console.log("User Registered");
+        } else {
+          console.log("Something Wrong");
+        }
+      });
+    });
+  }
 
-        <text className="petro">PT.PETROKIMIA GRESIK</text>
+  render() {
+    return (
+      <main>
+        <div
+          style={{ display: "grid", background: "white" }}
+          className="divLogo"
+        >
+          <a href="../Dashboard" style={{margin: "0 auto", width:"100%", marginLeft:"29.5%"}}><img src="static/src/Logo_petro.png" id="logo_petro" /></a>
 
-        <text className="welcome"> SIGN UP </text>
+          <text className="petro">PT.PETROKIMIA GRESIK</text>
 
-        <text className="sistem"> Sistem Monitoring Project</text>
+          <text className="welcome"> SIGN UP </text>
 
-        <text className="dept">DEPT. TEKNOLOGI DAN INFORMASI </text>
-    </div>
+          <text className="sistem"> Sistem Monitoring Project</text>
 
-    <form method="post" id="formRegist">
+          <text className="dept">DEPT. TEKNOLOGI DAN INFORMASI </text>
+        </div>
 
-    <text className="name_txt">Username</text>
-    
-    <input
-      type = "string"
-      name = "name"
-      id = "ed_name"/>
+        <form method="post" id="formRegist">
+          <text className="name_txt">Username</text>
 
-    <text className="email_txt">Email</text>
-    
-    <input
-      type = "email"
-      name = "email"
-      id = "ed_email"/>
+          <input type="string" name="name" id="ed_name" />
 
-    <text className="password_txt">Password</text>
-    <input
-      type = "password"
-      name = "password"
-      id = "ed_password"/>
+          <text className="email_txt">Email</text>
 
-    <text className="gender_txt">Gender</text>
-    <select className="gender" id="genders">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select>
+          <input type="email" name="email" id="ed_email" />
 
-    <text className="date_txt">Date of Birth</text>
-    <input
-      type = "date"
-      name = "bornDate"
-      id = "ed_bornDate"
-      placeholder = "Birth Date"/>
+          <text className="password_txt">Password</text>
+          <input type="password" name="password" id="ed_password" />
 
-      <button className="regist">Register</button>
-      <form action='http://localhost:3000/Login'>
-          <input type="submit" value = "Back to Login" className="loginBack"/>
-      </form>
-    </form>
-<style jsx global>{`
+          <text className="gender_txt">Gender</text>
+          <select className="gender" id="genders">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
 
-    .petro{
-        margin: 0 auto;
-        font-size: 20px;
-        margin-top: 0%;
-        font-family: 'Open Sans', sans-serif;
-    }
+          <text className="date_txt">Date of Birth</text>
+          <input
+            type="date"
+            name="bornDate"
+            id="ed_bornDate"
+            placeholder="Birth Date"
+          />
 
-    .dept{
-        font-size: 20px;
-        margin: 0 auto;
-        margin-bottom: 10%;
-    }
+          <button className="regist">Register</button>
+          <form action="http://localhost:3000/Login">
+            <input type="submit" value="Back to Login" className="loginBack" />
+          </form>
+        </form>
+        <style jsx global>{`
+          .petro {
+            margin: 0 auto;
+            font-size: 20px;
+            margin-top: 0%;
+            font-family: "Open Sans", sans-serif;
+          }
 
-    .welcome{
-        font-size: 40px;
-        margin: 0 auto;
-        margin-top: 10%;
-    }
+          .dept {
+            font-size: 20px;
+            margin: 0 auto;
+            margin-bottom: 10%;
+          }
 
-    .sistem{
-        font-size: 20px;
-        margin: 0 auto;
-        margin-top: 10%;
-    }
+          .welcome {
+            font-size: 40px;
+            margin: 0 auto;
+            margin-top: 10%;
+          }
 
-    body {
-        background: #3EC400;
-        font-family: 'Open Sans', sans-serif;
-        margin: 0;
-    }
+          .sistem {
+            font-size: 20px;
+            margin: 0 auto;
+            margin-top: 10%;
+          }
 
-    div {
-        margin: 0 auto;
-        display: block;
-    }
+          body {
+            background: #3ec400;
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+          }
 
-    main{
-        display: grid;  
-        grid-template-columns: 1fr 1fr;
-        font-family: 'Open Sans', sans-serif;
-    }
+          div {
+            margin: 0 auto;
+            display: block;
+          }
 
-    .ahref{
-        font-size: 13px;
-        text-decoration: none;
-    }
+          main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            font-family: "Open Sans", sans-serif;
+          }
 
-    .divLogo{
-        width: 100%;
-        margin: 0 auto;
-        height: 646px;
-    }
+          .ahref {
+            font-size: 13px;
+            text-decoration: none;
+          }
 
-    .regist{
-        width: 37%;
-        margin: 0 auto;
-        margin-top: 4%;
-        display: grid;
-        font-size: 30px;
-        padding: 5px 5px;
-        border-radius: 10px;
-    }
+          .divLogo {
+            width: 100%;
+            margin: 0 auto;
+            height: 646px;
+          }
 
-    .loginBack{
-        width: 40%;
-        margin: 0 auto;
-        margin-top: 3%;
-        display: grid;
-        font-size: 100%;
-        padding: 2px 2px;
-        border-radius: 10px;
-    }
+          .regist {
+            width: 37%;
+            margin: 0 auto;
+            margin-top: 4%;
+            display: grid;
+            font-size: 30px;
+            padding: 5px 5px;
+            border-radius: 10px;
+          }
 
-    #logo_petro{
-        background: #FFFFFF;
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 15%;
-    }
+          .loginBack {
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 3%;
+            display: grid;
+            font-size: 100%;
+            padding: 2px 2px;
+            border-radius: 10px;
+          }
 
-    .email_txt{
-        margin-top: 2%;
-        font-size: 20px;
-        display: block;
-        color: white;
-        margin-left: 24%;
-    }
+          #logo_petro {
+            background: #ffffff;
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 5%;
+          }
 
-    .gender_txt{
-        margin-top: 2%;
-        font-size: 20px;
-        display: block;
-        color: white;
-        margin-left: 24%;
-    }
+          .email_txt {
+            margin-top: 2%;
+            font-size: 20px;
+            display: block;
+            color: white;
+            margin-left: 24%;
+          }
 
-    .date_txt{
-        margin-top: 2%;
-        font-size: 20px;
-        display: block;
-        color: white;
-        margin-left: 24%;
-    }
+          .gender_txt {
+            margin-top: 2%;
+            font-size: 20px;
+            display: block;
+            color: white;
+            margin-left: 24%;
+          }
 
-    .gender{
-        width: 53%;
-        margin: 0 auto;
-        margin-top: 0.5%;
-        display: block;
-        border-radius: 5px;
-        font-size: 20px;
-        border: none;
-        padding: 10px 10px;
-        background: orange;
-        color: black;
-    }
+          .date_txt {
+            margin-top: 2%;
+            font-size: 20px;
+            display: block;
+            color: white;
+            margin-left: 24%;
+          }
 
-    #ed_bornDate{
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 0.5%;
-        display: block;
-        border-radius: 5px;
-        font-size: 20px;
-        border: none;
-        padding: 10px 10px;
-        background: orange;
-        color: black;
-    }
+          .gender {
+            width: 53%;
+            margin: 0 auto;
+            margin-top: 0.5%;
+            display: block;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            padding: 10px 10px;
+            background: orange;
+            color: black;
+          }
 
-    .name_txt{
-        margin-top: 7%;
-        font-size: 20px;
-        display: block;
-        color: white;
-        margin-left: 24%;
-    }
+          #ed_bornDate {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 0.5%;
+            display: block;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            padding: 10px 10px;
+            background: orange;
+            color: black;
+          }
 
-    #ed_name{
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 0.5%;
-        display: block;
-        border-radius: 5px;
-        font-size: 20px;
-        border: none;
-        padding: 10px 10px;
-        background: orange;
-        color: black;
-    }
+          .name_txt {
+            margin-top: 7%;
+            font-size: 20px;
+            display: block;
+            color: white;
+            margin-left: 24%;
+          }
 
-    #ed_email{
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 0.5%;
-        display: block;
-        border-radius: 5px;
-        font-size: 20px;
-        border: none;
-        padding: 10px 10px;
-        background: orange;
-        color: black;
-    }
+          #ed_name {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 0.5%;
+            display: block;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            padding: 10px 10px;
+            background: orange;
+            color: black;
+          }
 
-    .password_txt{
-        margin-top: 2%;
-        font-size: 20px;
-        display: block;
-        margin-left: 24%;
-        color: white;
-    }
-    #ed_password{
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 1%;
-        display: block;
-        background: orange;
-        border-radius: 5px;
-        font-size: 20px;
-        border: none;
-        padding: 10px 10px;
-        color: black;
-    }
-`}</style>
-</main>
+          #ed_email {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 0.5%;
+            display: block;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            padding: 10px 10px;
+            background: orange;
+            color: black;
+          }
 
-        )
-    }
+          .password_txt {
+            margin-top: 2%;
+            font-size: 20px;
+            display: block;
+            margin-left: 24%;
+            color: white;
+          }
+          #ed_password {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 1%;
+            display: block;
+            background: orange;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            padding: 10px 10px;
+            color: black;
+          }
+        `}</style>
+      </main>
+    );
+  }
 }
 
 export default Regist;
