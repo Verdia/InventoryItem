@@ -1,17 +1,17 @@
-import React from "react";
+import React from "react"
 
 class Regist extends React.Component {
   componentDidMount() {
-    var form = document.getElementById("formRegist");
+    var form = document.getElementById("formRegist")
     form.addEventListener("submit", event => {
       const email = document.getElementById("ed_email").value,
         password = document.getElementById("ed_password").value,
         name = document.getElementById("ed_name").value,
         date = document.getElementById("ed_bornDate").value,
-        gender = document.getElementById("genders").value;
+        gender = document.getElementById("genders").value
 
-      console.log("email : ", email);
-      console.log("password : ", password);
+      console.log("email : ", email)
+      console.log("password : ", password)
       event.preventDefault();
       fetch("http://localhost:3000/registration", {
         method: "POST",
@@ -20,11 +20,11 @@ class Regist extends React.Component {
         },
         body: `name=${name}&email=${email}&password=${password}&bornDate=${date}&gender=${gender}`
       }).then(response => {
-        console.log(response);
+        console.log(response)
         if (response.ok) {
-          console.log("User Registered");
+          console.log("User Registered")
         } else {
-          console.log("Something Wrong");
+          console.log("Something Wrong")
         }
       });
     });

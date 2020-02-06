@@ -1,3 +1,4 @@
+
 //Calling Library
 let express = require("express"),
   app = express(),
@@ -22,7 +23,7 @@ Next.prepare().then(() => {
   app.use(express.json());
 
   //Connect mongoose and set connect var
-  mongoose.connect("mongodb://localhost/reg", {
+  mongoose.connect("mongodb://localhost/warehouse", {
     useNewUrlParser: true
   });
 

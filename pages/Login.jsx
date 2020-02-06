@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 class Clock extends React.Component {
   componentDidMount() {
@@ -7,8 +7,8 @@ class Clock extends React.Component {
       const email = document.getElementById("ed_email").value,
         password = document.getElementById("ed_password").value;
 
-      console.log("email : ", email);
-      console.log("password : ", password);
+      console.log("email : ", email)
+      console.log("password : ", password)
       event.preventDefault();
       fetch("http://localhost:3000/login", {
         method: "POST",
@@ -17,7 +17,7 @@ class Clock extends React.Component {
         },
         body: `email=${email}&password=${password}`
       }).then(response => {
-        console.log("Password is", response.ok);
+        console.log("Password is", response.ok)
       });
     });
   }

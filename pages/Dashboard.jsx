@@ -38,9 +38,6 @@ class Dashboard extends React.Component {
             <a href="../Login" className="login">
               Login
             </a>
-            <a href="../DaftarBarang" className="daftarBarang">
-              Daftar Barang
-            </a>
             <a href="../Panduan" className="panduan">
               Panduan
             </a>
@@ -103,17 +100,10 @@ class Dashboard extends React.Component {
           }
 
           .login {
-            margin-left: 15%;
+            margin-left: 45%;
             margin-right: 5%;
             font-size: 25px;
             margin-top: 0%;
-            text-decoration: none;
-            color: black;
-          }
-
-          .daftarBarang {
-            font-size: 25px;
-            margin-right: 5%;
             text-decoration: none;
             color: black;
           }
